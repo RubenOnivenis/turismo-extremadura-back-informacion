@@ -58,7 +58,7 @@ public class SpringJdbcRutasDao extends JdbcDaoSupport implements RutasDao {
 
             Rutas rutas = new Rutas();
 
-            rutas.setIdRuta(rs.getInt("id_alojamiento"));
+            rutas.setIdRuta(rs.getInt("id_ruta"));
             rutas.setIdLocalizacion(rs.getInt("id_localizacion"));
             rutas.setImagen(rs.getString("imagen"));
             rutas.setNombre(rs.getString("nombre"));
