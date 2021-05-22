@@ -13,11 +13,9 @@ public class ForoTemas implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTema;
-
     private String nombreTema;
     private String comentarioTema;
     private int idUsuario;
-
     // Con esta anotación le proporcionamos la hora y fecha actual al campo
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date fchHoraTema = new Date();

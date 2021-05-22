@@ -1,0 +1,73 @@
+package com.backend.models.dao;
+
+import com.backend.models.entity.ForoTemas;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Repository;
+
+import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+@Repository
+public class SpringJdbcForoTemasDao extends JdbcDaoSupport implements ForoTemasDao {
+
+    @Autowired
+    public void setDs(DataSource dataSource) {
+        setDataSource(dataSource);
+    }
+
+    @Autowired private JdbcTemplate jdbcTemplate;
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    @Override
+    public List<ForoTemas> getForoTemas() {
+
+        String sql = "SELECT * FROM foro_temas";
+
+        return getJdbcTemplate().query(sql, new ForoTemasRowMapper());
+    }
+
+    @Override
+    public ForoTemas getForoTemasById(int idTema) {
+
+        String sql = "SELECT * FROM foro_temas WHERE id_tema = :id_tema";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_tema", idTema);
+
+        return (ForoTemas) getNamedJdbcTemplate().queryForObject(sql, params, new ForoTemasRowMapper());
+    }
+
+
+    private NamedParameterJdbcTemplate getNamedJdbcTemplate(){
+
+        if (this.namedParameterJdbcTemplate == null){
+
+            this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(this.jdbcTemplate.getDataSource());
+        }
+        return this.namedParameterJdbcTemplate;
+    }
+
+    private class ForoTemasRowMapper implements RowMapper{
+
+        public Object mapRow(ResultSet rs, int i) throws SQLException {
+
+            ForoTemas foroTemas = new ForoTemas();
+
+            foroTemas.setIdTema(rs.getInt("id_tema"));
+            foroTemas.setNombreTema(rs.getString("nombre_tema"));
+            foroTemas.setComentarioTema(rs.getString("comentario_tema"));
+            foroTemas.setIdUsuario(rs.getInt("id_usuario"));
+            foroTemas.setFchHoraTema(rs.getDate("fch_hora_tema"));
+
+            return foroTemas;
+
+        }
+
+    }
+}
