@@ -17,7 +17,6 @@ public class ComentariosForo implements Serializable {
     private String comentario;
     private int idUsuario;
     private int idTema;
-
     // Con esta anotación le proporcionamos la hora y fecha actual al campo
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date fchHoraComentario = new Date();

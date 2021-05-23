@@ -3,7 +3,6 @@ package com.backend.controllers;
 import com.backend.models.entity.ForoTemas;
 import com.backend.models.services.ForoTemasService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
