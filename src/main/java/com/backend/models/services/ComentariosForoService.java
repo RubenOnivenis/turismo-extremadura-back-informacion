@@ -11,4 +11,12 @@ public interface ComentariosForoService {
 
     ComentariosForo findById(int idComentarioForo);
 
+    int save(ComentariosForo comentariosForo);
+
+    int delete(int idComentarioForo, int idUsuario);
+
+    int insert (ComentariosForo comentariosForo);
+
+    int update (ComentariosForo comentariosForo);
+
 }

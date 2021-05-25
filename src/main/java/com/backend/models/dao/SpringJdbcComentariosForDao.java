@@ -44,6 +44,41 @@ public class SpringJdbcComentariosForDao extends JdbcDaoSupport implements Comen
         return (ComentariosForo) getNamedJdbcTemplate().queryForObject(sql, params, new ComentariosForoRowMapper());
     }
 
+    @Override
+    public int insert(ComentariosForo comentariosForo) {
+        String sql = "INSERT INTO comentarios_foro(comentario, id_usuario, id_tema, fch_hora_tema) " +
+                "VALUES (:comentario, :id_usuario, :id_tema, sysdate) " +
+                "WHERE id_usuario = :id_usuario";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("comentario", comentariosForo.getComentario());
+        params.addValue("id_usuario", comentariosForo.getIdUsuario());
+        params.addValue("id_tema", comentariosForo.getIdTema());
+
+        return getNamedJdbcTemplate().update(sql, params);
+    }
+
+    @Override
+    public int update(ComentariosForo comentariosForo) {
+
+        String sql = "UPDATE comenarios_foro SET comentario = :comentario WHERE id_comentario_foro = :id_comentario_foro";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("comentario", comentariosForo.getComentario());
+        params.addValue("id_comentario_foro", comentariosForo.getIdComentarioForo());
+
+        return getNamedJdbcTemplate().update(sql, params);
+    }
+
+    @Override
+    public int delete(int idComentarioForo, int idUsuario) {
+
+        String sql = "DELETE FROM comenarios_foro WHERE id_comentario_foro = :id_comentario_foro AND id_usuario = :id_usuario";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_comentario_foro", idComentarioForo);
+        params.addValue("id_usuario", idUsuario);
+
+        return getNamedJdbcTemplate().update(sql, params);
+    }
+
     private NamedParameterJdbcTemplate getNamedJdbcTemplate(){
 
         if (this.namedParameterJdbcTemplate == null){

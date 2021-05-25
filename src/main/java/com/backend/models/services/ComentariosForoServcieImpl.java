@@ -22,4 +22,24 @@ public class ComentariosForoServcieImpl implements ComentariosForoService{
     public ComentariosForo findById(int idComentarioForo) {
         return comentariosForoDao.getComentariosForoById(idComentarioForo);
     }
+
+    @Override
+    public int save(ComentariosForo comentariosForo) {
+        return comentariosForoDao.insert(comentariosForo);
+    }
+
+    @Override
+    public int delete(int idComentarioForo, int idUsuario) {
+        return comentariosForoDao.delete(idComentarioForo, idUsuario);
+    }
+
+    @Override
+    public int insert(ComentariosForo comentariosForo) {
+        return comentariosForoDao.update(comentariosForo);
+    }
+
+    @Override
+    public int update(ComentariosForo comentariosForo) {
+        return comentariosForoDao.update(comentariosForo);
+    }
 }

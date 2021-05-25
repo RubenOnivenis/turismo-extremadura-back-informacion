@@ -10,4 +10,12 @@ public interface ForoTemasService {
 
     ForoTemas findById(int idTema);
 
+    int save(ForoTemas foroTemas);
+
+    int delete(int idTema, int idUsuario);
+
+    int insert (ForoTemas foroTemas);
+
+    int update (ForoTemas foroTemas);
+
 }

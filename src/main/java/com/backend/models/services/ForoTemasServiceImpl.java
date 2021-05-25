@@ -22,5 +22,23 @@ public class ForoTemasServiceImpl implements ForoTemasService{
         return foroTemasDao.getForoTemasById(idTema);
     }
 
+    @Override
+    public int save(ForoTemas foroTemas) {
+        return foroTemasDao.insert(foroTemas);
+    }
 
+    @Override
+    public int delete(int idTema, int idUsusario) {
+        return foroTemasDao.delete(idTema, idUsusario);
+    }
+
+    @Override
+    public int insert(ForoTemas foroTemas) {
+        return foroTemasDao.update(foroTemas);
+    }
+
+    @Override
+    public int update(ForoTemas foroTemas) {
+        return foroTemasDao.update(foroTemas);
+    }
 }

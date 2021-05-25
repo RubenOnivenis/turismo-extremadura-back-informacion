@@ -43,6 +43,44 @@ public class SpringJdbcForoTemasDao extends JdbcDaoSupport implements ForoTemasD
         return (ForoTemas) getNamedJdbcTemplate().queryForObject(sql, params, new ForoTemasRowMapper());
     }
 
+    @Override
+    public int insert(ForoTemas foroTemas) {
+
+        String sql = "INSERT INTO foro_temas(nombre_tema, comentario_tema, id_usuario, fch_hora_tema) " +
+                "VALUES (:nombre_tema, :comentario_tema, :id_usuario, sysdate) " +
+                "WHERE id_usuario = :id_usuario";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("nombre_tema", foroTemas.getNombreTema());
+        params.addValue("comentario_tema", foroTemas.getComentarioTema());
+        params.addValue("id_usuario", foroTemas.getIdUsuario());
+
+        return getNamedJdbcTemplate().update(sql, params);
+    }
+
+    @Override
+    public int update(ForoTemas foroTemas) {
+
+        String sql = "UPDATE foro_temas SET nombre_tema = :nombre_tema, comentario_tema = :comentario_tema " +
+                "WHERE id_tema = :id_tema AND id_usuario = :id_usuario";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_tema", foroTemas.getIdTema());
+        params.addValue("nombre_tema", foroTemas.getNombreTema());
+        params.addValue("comentario_tema", foroTemas.getComentarioTema());
+        params.addValue("id_usuario", foroTemas.getIdUsuario());
+
+        return getNamedJdbcTemplate().update(sql, params);
+    }
+
+    @Override
+    public int delete(int idTema, int idUsuario) {
+
+        String sql = "DELETE FROM foro_temas WHERE id_tema = :id_tema AND id_usuario = :id_usuario";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_tema", idTema);
+        params.addValue("id_usuario", idUsuario);
+
+        return getNamedJdbcTemplate().update(sql, params);
+    }
 
     private NamedParameterJdbcTemplate getNamedJdbcTemplate(){
 

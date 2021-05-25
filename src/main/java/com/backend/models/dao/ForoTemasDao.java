@@ -10,4 +10,10 @@ public interface ForoTemasDao {
 
     ForoTemas getForoTemasById(int idTema);
 
+    int insert(ForoTemas foroTemas);
+
+    int update(ForoTemas foroTemas);
+
+    int delete(int idTema, int idUsuario);
+
 }
