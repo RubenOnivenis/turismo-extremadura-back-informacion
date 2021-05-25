@@ -54,7 +54,7 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
     public int update(Usuario usuario) {
         String sql = "UPDATE usuario SET "
                 + "nombre_usuario = :nombre_usuario, nombre = :nombre, apellidos = :apellidos, fch_nacimiento = :fch_nacimiento, "
-                + "email = :email, imagen_perfil = :imagen_perfil, telefono=:telefono "
+                + "email = :email, telefono=:telefono "
                 + "WHERE id = :id;";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", usuario.getId());
@@ -63,7 +63,6 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
         params.addValue("apellidos", usuario.getApellidos());
         params.addValue("fch_nacimiento", usuario.getFch_nacimiento());
         params.addValue("email", usuario.getEmail());
-        params.addValue("imagen_perfil", usuario.getImagen_perfil());
         params.addValue("telefono", usuario.getTelefono());
 
         return getNamedJdbcTemplate().update(sql, params);
@@ -102,7 +101,6 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
             usuario.setFch_nacimiento(rs.getDate("fch_nacimiento"));
             usuario.setEmail(rs.getString("email"));
             usuario.setPassword(rs.getString("password"));
-            usuario.setImagen_perfil(rs.getBlob("imagen_perfil"));
             usuario.setTelefono(rs.getString("telefono"));
 
             return usuario;
