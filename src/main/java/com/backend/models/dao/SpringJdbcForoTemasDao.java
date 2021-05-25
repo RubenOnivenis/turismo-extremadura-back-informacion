@@ -47,12 +47,12 @@ public class SpringJdbcForoTemasDao extends JdbcDaoSupport implements ForoTemasD
     public int insert(ForoTemas foroTemas) {
 
         String sql = "INSERT INTO foro_temas(nombre_tema, comentario_tema, id_usuario, fch_hora_tema) " +
-                "VALUES (:nombre_tema, :comentario_tema, :id_usuario, sysdate) " +
-                "WHERE id_usuario = :id_usuario";
+                "VALUES (:nombre_tema, :comentario_tema, :id_usuario, :fch_hora_tema) ";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("nombre_tema", foroTemas.getNombreTema());
         params.addValue("comentario_tema", foroTemas.getComentarioTema());
         params.addValue("id_usuario", foroTemas.getIdUsuario());
+        params.addValue("fch_hora_tema", foroTemas.getFchHoraTema());
 
         return getNamedJdbcTemplate().update(sql, params);
     }
