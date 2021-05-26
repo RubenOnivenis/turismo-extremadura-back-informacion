@@ -9,7 +9,7 @@ public interface UsuarioDao {
 
     List<Usuario> getUsuarios();
 
-    Usuario getUsuarioById(String nombre_usuario);
+    Usuario getUsuarioByName(String nombre_usuario);
 
     int delete(int id);
 

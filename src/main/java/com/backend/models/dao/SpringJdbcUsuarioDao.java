@@ -33,10 +33,10 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
     }
 
     @Override
-    public Usuario getUsuarioById(String nombre_usuario) {
+    public Usuario getUsuarioByName(String nombre_usuario) {
         String sql = "SELECT * FROM usuario WHERE nombre_usuario = :nombre_usuario;";
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("nombre_usuario", nombre_usuario);	//Cuando se encuentren :id lo cambiara por la variable id que nos llega del método
+        params.addValue("nombre_usuario", nombre_usuario);	//Cuando se encuentren :nombre_usuario lo cambiara por la variable id que nos llega del método
 
         return (Usuario) getNamedJdbcTemplate().queryForObject(sql, params, new UsuarioRowMapper());
     }

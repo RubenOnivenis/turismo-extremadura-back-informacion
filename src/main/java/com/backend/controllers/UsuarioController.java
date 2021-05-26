@@ -24,7 +24,7 @@ public class UsuarioController {
     @GetMapping("/usuario/{nombre_usuario}")	//Usuarios por id
     public Usuario show(@PathVariable String nombre_usuario) {
 
-        return usuarioService.findById(nombre_usuario);
+        return usuarioService.findByName(nombre_usuario);
     }
 
     @PutMapping("/usuarios/{nombre_usuario}") @ResponseStatus(HttpStatus.CREATED)	//Modificar usuario, menos la contraseña

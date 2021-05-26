@@ -19,25 +19,15 @@ public class UsuarioServiceImpl implements UsuarioService{
         return usuarioDao.getUsuarios();
     }
 
-   /* @Override
-    public int save(Usuario usuario) {
-        return usuarioDao.insert(usuario);
-    }*/
-
     @Override
     public int delete(int id) {
         return usuarioDao.delete(id);
     }
 
     @Override
-    public Usuario findById(String nombre_usuario) {
-        return usuarioDao.getUsuarioById(nombre_usuario);
+    public Usuario findByName(String nombre_usuario) {
+        return usuarioDao.getUsuarioByName(nombre_usuario);
     }
-
-   /* @Override
-    public int insert(Usuario usuario) {
-        return usuarioDao.insert(usuario);
-    }*/
 
     @Override
     public int update(Usuario usuario) {

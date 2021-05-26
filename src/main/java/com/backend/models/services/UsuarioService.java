@@ -7,18 +7,14 @@ import com.backend.models.entity.Usuario;
 
 public interface UsuarioService {
 
-    public List<Usuario> findAll();
+    List<Usuario> findAll();
 
-   // public int save(Usuario usuario);
+    int delete(int id);
 
-    public int delete(int id);
+    Usuario findByName(String nombre_usuario);
 
-    public Usuario findById(String nombre_usuario);
+    int update(Usuario usuario);
 
-   // public int insert(Usuario usuario);
-
-    public int update(Usuario usuario);
-
-    public int updatePass(Usuario usuario);
+    int updatePass(Usuario usuario);
 
 }
