@@ -14,15 +14,18 @@ public class Rutas implements Serializable {
     private String nombre;
     private String imagen;
     private String descripcion;
+    private String url;
 
-    public Rutas(){}
+    public Rutas() {
+    }
 
-    public Rutas(int idRuta, int idLocalizacion, String nombre, String imagen, String descripcion) {
+    public Rutas(int idRuta, int idLocalizacion, String nombre, String imagen, String descripcion, String url) {
         this.idRuta = idRuta;
         this.idLocalizacion = idLocalizacion;
         this.nombre = nombre;
         this.imagen = imagen;
         this.descripcion = descripcion;
+        this.url = url;
     }
 
     public int getIdRuta() {
@@ -63,5 +66,13 @@ public class Rutas implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

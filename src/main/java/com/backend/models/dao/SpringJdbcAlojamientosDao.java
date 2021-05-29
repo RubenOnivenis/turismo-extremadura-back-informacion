@@ -76,6 +76,7 @@ public class SpringJdbcAlojamientosDao extends JdbcDaoSupport implements Alojami
             alojamientos.setImagen(rs.getString("imagen"));
             alojamientos.setNombre(rs.getString("nombre"));
             alojamientos.setDescripcion(rs.getString("descripcion"));
+            alojamientos.setUrl(rs.getString("url"));
 
             return alojamientos;
 

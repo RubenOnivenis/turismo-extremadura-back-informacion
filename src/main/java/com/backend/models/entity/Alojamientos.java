@@ -16,15 +16,17 @@ public class Alojamientos implements Serializable {
     private String imagen;
     private String nombre;
     private String descripcion;
+    private String url;
 
     public Alojamientos(){}
 
-    public Alojamientos(int idAlojamiento, int idLocalizacion, String imagen, String nombre, String descripcion) {
+    public Alojamientos(int idAlojamiento, int idLocalizacion, String imagen, String nombre, String descripcion, String url) {
         this.idAlojamiento = idAlojamiento;
         this.idLocalizacion = idLocalizacion;
         this.imagen = imagen;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.url = url;
     }
 
     public int getIdAlojamiento() {
@@ -65,5 +67,13 @@ public class Alojamientos implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

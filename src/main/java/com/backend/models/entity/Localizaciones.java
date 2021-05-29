@@ -15,15 +15,17 @@ public class Localizaciones implements Serializable {
     private String provincia;
     private String comarca;
     private String imagen;
+    private String url;
 
     public Localizaciones(){}
 
-    public Localizaciones(int idLocalizacion, String nombre, String provincia, String comarca, String imagen) {
+    public Localizaciones(int idLocalizacion, String nombre, String provincia, String comarca, String imagen, String url) {
         this.idLocalizacion = idLocalizacion;
         this.nombre = nombre;
         this.provincia = provincia;
         this.comarca = comarca;
         this.imagen = imagen;
+        this.url = url;
     }
 
     public int getIdLocalizacion() {
@@ -64,5 +66,13 @@ public class Localizaciones implements Serializable {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
