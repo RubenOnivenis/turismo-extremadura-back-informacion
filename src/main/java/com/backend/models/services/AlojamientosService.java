@@ -9,4 +9,6 @@ public interface AlojamientosService {
     List<Alojamientos> findAll();
 
     List<Alojamientos> getAlojamientosByName(String nombre);
+
+    Alojamientos findById(int id_alojamiento);
 }

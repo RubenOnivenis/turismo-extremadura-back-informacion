@@ -26,4 +26,10 @@ public class AlojamientosController {
     public List<Alojamientos> getAlojamientosByName(@PathVariable String nombre){
         return alojamientosService.getAlojamientosByName(nombre);
     }
+
+    @GetMapping("/alojamiento/{id_alojamiento}")
+    public Alojamientos show(@PathVariable int id_alojamiento){
+
+        return alojamientosService.findById(id_alojamiento);
+    }
 }

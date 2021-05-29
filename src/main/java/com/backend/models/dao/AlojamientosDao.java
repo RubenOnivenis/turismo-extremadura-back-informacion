@@ -9,4 +9,6 @@ public interface AlojamientosDao {
     List<Alojamientos> getAlojamientos();
 
     List<Alojamientos> getAlojamientosByName(String nombre);
+
+    Alojamientos getAlojamientoById(int id_alojamiento);
 }

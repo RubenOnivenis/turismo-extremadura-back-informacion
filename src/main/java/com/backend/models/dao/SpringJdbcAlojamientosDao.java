@@ -53,6 +53,18 @@ public class SpringJdbcAlojamientosDao extends JdbcDaoSupport implements Alojami
         return getNamedJdbcTemplate().query(sql, params, new AlojamientosRowMapper());
     }
 
+    @Override
+    public Alojamientos getAlojamientoById(int id_alojamiento) {
+
+        String sql = "SELECT * FROM alojamientos WHERE id_alojamiento = :id_alojamiento";
+
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_alojamiento", id_alojamiento);
+
+        return (Alojamientos) getNamedJdbcTemplate().queryForObject(sql, params, new AlojamientosRowMapper());
+
+    }
+
     private class AlojamientosRowMapper implements RowMapper {
 
         public Object mapRow(ResultSet rs, int i) throws SQLException {
