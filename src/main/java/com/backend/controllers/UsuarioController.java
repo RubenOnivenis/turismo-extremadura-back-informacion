@@ -28,9 +28,9 @@ public class UsuarioController {
     }
 
     @PutMapping("/usuarios/{nombre_usuario}") @ResponseStatus(HttpStatus.CREATED)	//Modificar usuario, menos la contraseña
-    public int update(@RequestBody Usuario usuario, @PathVariable int id) {
+    public int update(@RequestBody Usuario usuario, @PathVariable String nombre_usuario) {
 
-        usuario.setId(id);
+        usuario.setNombreUsuario(nombre_usuario);
 
         return usuarioService.update(usuario);
     }

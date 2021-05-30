@@ -55,7 +55,7 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
         String sql = "UPDATE usuario SET "
                 + "nombre_usuario = :nombre_usuario, nombre = :nombre, apellidos = :apellidos, fch_nacimiento = :fch_nacimiento, "
                 + "email = :email, telefono=:telefono "
-                + "WHERE id = :id;";
+                + "WHERE nombre_usuario = :nombre_usuario;";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", usuario.getId());
         params.addValue("nombre_usuario", usuario.getNombreUsuario());
