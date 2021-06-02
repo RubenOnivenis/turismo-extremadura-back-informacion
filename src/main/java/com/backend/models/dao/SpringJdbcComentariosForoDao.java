@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class SpringJdbcComentariosForDao extends JdbcDaoSupport implements ComentariosForoDao{
+public class SpringJdbcComentariosForoDao extends JdbcDaoSupport implements ComentariosForoDao{
 
     @Autowired
     public void setDs(DataSource dataSource) {

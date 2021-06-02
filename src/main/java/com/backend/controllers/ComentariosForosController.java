@@ -25,6 +25,7 @@ public class ComentariosForosController {
         return comentariosForoService.findById(id_comentario_foro);
     }
 
+    // Controlador para añadir un comentario
     @PostMapping("/comentario_foro") @ResponseStatus(HttpStatus.CREATED)
     public int create(@RequestBody ComentariosForo comentariosForo){
         return comentariosForoService.save(comentariosForo);
