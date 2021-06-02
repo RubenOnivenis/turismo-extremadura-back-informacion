@@ -30,7 +30,8 @@ public class SpringJdbcForoTemasDatosDao extends JdbcDaoSupport implements ForoT
     @Override
     public List<ForoTemasDatos> getForoTemasDatos() {
 
-        String sql = "SELECT foro_temas.id_tema, foro_temas.nombre_tema, foro_temas.comentario_tema, foro_temas.id_usuario, foro_temas.fch_hora_tema, usuario.nombre_usuario "
+        String sql = "SELECT foro_temas.id_tema, foro_temas.nombre_tema, foro_temas.comentario_tema, foro_temas.id_usuario, "
+                + "foro_temas.fch_hora_tema, usuario.nombre_usuario "
         		+ "FROM foro_temas INNER JOIN usuario ON foro_temas.id_usuario = usuario.id";
 
         return getJdbcTemplate().query(sql, new ForoTemasDatosRowMapper());
