@@ -49,6 +49,17 @@ public class SpringJdbcForoTemasDatosDao extends JdbcDaoSupport implements ForoT
         return (ForoTemasDatos) getNamedJdbcTemplate().queryForObject(sql, params, new ForoTemasDatosRowMapper());
     }
     
+    @Override
+	public List<ForoTemasDatos> getTemasByNombre(String nombre) {
+		// TODO Auto-generated method stub
+		String SQL="SELECT foro_temas.id_tema, foro_temas.nombre_tema, foro_temas.comentario_tema, foro_temas.id_usuario, foro_temas.fch_hora_tema, usuario.nombre_usuario "
+				+ "FROM foro_temas INNER JOIN usuario ON foro_temas.id_usuario = usuario.id "
+				+ "WHERE nombre_tema LIKE CONCAT('%',:nombre,'%');";
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("nombre", nombre);
+		return getNamedJdbcTemplate().query(SQL, params, new ForoTemasDatosRowMapper());
+	}
+    
     private NamedParameterJdbcTemplate getNamedJdbcTemplate(){
 
         if (this.namedParameterJdbcTemplate == null){

@@ -7,11 +7,15 @@ import java.util.Date;
 
 public class ComentariosForoDatos implements Serializable {
 
-    private int idComentarioForo;
+	private static final long serialVersionUID = 1L;
+	
+	private int idComentarioForo;
     private String comentario;
     private int idUsuario;
     private int idTema;
-    private Date fchHoraComentario;
+    //Con esta anotación le proporcionamos la hora y fecha actual al campo
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private Date fchHoraComentario = new Date();
     private String nombreUsuario;
     private String nombreTema;
     private String descripcionTema;

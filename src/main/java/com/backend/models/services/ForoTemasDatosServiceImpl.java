@@ -22,4 +22,9 @@ public class ForoTemasDatosServiceImpl implements ForoTemasDatosService{
     public ForoTemasDatos findById(int idTema) {
         return foroTemasDatosDao.getForoTemasDatosById(idTema);
     }
+    
+    @Override
+	public List<ForoTemasDatos> findByName(String nombre) {
+		return foroTemasDatosDao.getTemasByNombre(nombre);
+	}
 }

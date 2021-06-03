@@ -1,11 +1,9 @@
 package com.backend.controllers;
 
-import com.backend.models.entity.ForoTemas;
 import com.backend.models.entity.ForoTemasDatos;
 import com.backend.models.services.ForoTemasDatosService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,4 +23,10 @@ public class ForoTemasDatosController {
     public ForoTemasDatos show(@PathVariable int id_tema){
         return foroTemasDatosService.findById(id_tema);
     }
+	
+	//Controlador para ver los temas según el nombre, este sirve para el buscador
+    @GetMapping("/foro_temas_datos/nombre/{nombre}")
+	public List<ForoTemasDatos> show(@PathVariable String nombre) {
+		return foroTemasDatosService.findByName(nombre);
+	}
 }

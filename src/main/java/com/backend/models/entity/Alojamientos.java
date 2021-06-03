@@ -2,13 +2,14 @@ package com.backend.models.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Blob;
 
 @Entity
 @Table(name="alojamientos")
 public class Alojamientos implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAlojamiento;
 

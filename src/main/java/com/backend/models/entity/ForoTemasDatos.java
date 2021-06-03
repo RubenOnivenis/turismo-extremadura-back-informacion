@@ -1,26 +1,27 @@
 package com.backend.models.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class ForoTemasDatos implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id_tema;
 	private Integer id_usuario;
 	private String nombre_tema;
 	private String comentario_tema;
-	private Date fch_hora_tema;
+	// Con esta anotación le proporcionamos la hora y fecha actual al campo
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private Date fch_hora_tema = new Date();
 	private String nombre_usuario;
 
 	public Integer getId_tema() {
 		return id_tema;
 	}
-
+	
 	public void setId_tema(Integer id_tema) {
 		this.id_tema = id_tema;
 	}

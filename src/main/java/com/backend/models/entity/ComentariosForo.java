@@ -10,7 +10,9 @@ import java.util.Date;
 @Table(name="comentarios_foro")
 public class ComentariosForo implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComentarioForo;
 

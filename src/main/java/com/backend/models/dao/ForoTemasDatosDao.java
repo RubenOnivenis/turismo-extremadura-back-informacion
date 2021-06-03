@@ -9,5 +9,7 @@ public interface ForoTemasDatosDao {
     List<ForoTemasDatos> getForoTemasDatos();
 
     ForoTemasDatos getForoTemasDatosById(int idTema);
+    
+    List<ForoTemasDatos> getTemasByNombre(String nombre);
 
 }

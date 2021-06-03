@@ -10,7 +10,8 @@ import java.util.Date;
 @Table(name="foro_temas")
 public class ForoTemas implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTema;
     private String nombreTema;

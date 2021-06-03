@@ -2,12 +2,13 @@ package com.backend.models.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Blob;
 
 @Entity @Table(name="localizaciones")
 public class Localizaciones implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLocalizacion;
 

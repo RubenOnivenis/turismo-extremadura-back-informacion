@@ -9,5 +9,6 @@ public interface ForoTemasDatosService {
     List<ForoTemasDatos> findAll();
 
     ForoTemasDatos findById(int idTema);
-
+    
+    public List<ForoTemasDatos> findByName(String nombre);
 }
