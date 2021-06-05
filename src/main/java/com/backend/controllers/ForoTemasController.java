@@ -39,7 +39,7 @@ public class ForoTemasController {
     }
 
     @DeleteMapping("/temas_foro/{id_tema}") @ResponseStatus(HttpStatus.NO_CONTENT)
-    public int delete(@PathVariable int id_tema, int idUsuario){
-        return foroTemasService.delete(id_tema, idUsuario);
+    public int delete(@PathVariable int id_tema){
+        return foroTemasService.delete(id_tema);
     }
 }

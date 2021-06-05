@@ -28,8 +28,8 @@ public class ForoTemasServiceImpl implements ForoTemasService{
     }
 
     @Override
-    public int delete(int idTema, int idUsusario) {
-        return foroTemasDao.delete(idTema, idUsusario);
+    public int delete(int idTema) {
+        return foroTemasDao.delete(idTema);
     }
 
     @Override

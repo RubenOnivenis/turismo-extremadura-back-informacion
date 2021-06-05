@@ -12,7 +12,7 @@ public interface ForoTemasService {
 
     int save(ForoTemas foroTemas);
 
-    int delete(int idTema, int idUsuario);
+    int delete(int idTema);
 
     int insert (ForoTemas foroTemas);
 

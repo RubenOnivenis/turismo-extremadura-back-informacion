@@ -74,12 +74,11 @@ public class SpringJdbcForoTemasDao extends JdbcDaoSupport implements ForoTemasD
     }
 
     @Override
-    public int delete(int idTema, int idUsuario) {
+    public int delete(int idTema) {
 
-        String sql = "DELETE FROM foro_temas WHERE id_tema = :id_tema AND id_usuario = :id_usuario";
+        String sql = "DELETE FROM foro_temas WHERE id_tema = :id_tema";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id_tema", idTema);
-        params.addValue("id_usuario", idUsuario);
 
         return getNamedJdbcTemplate().update(sql, params);
     }

@@ -14,6 +14,6 @@ public interface ForoTemasDao {
 
     int update(ForoTemas foroTemas);
 
-    int delete(int idTema, int idUsuario);
+    int delete(int idTema);
 
 }

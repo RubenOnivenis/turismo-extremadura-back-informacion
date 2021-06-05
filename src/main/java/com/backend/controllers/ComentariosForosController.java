@@ -39,7 +39,7 @@ public class ComentariosForosController {
     }
 
     @DeleteMapping("/comentario_foro/{id_comentario_foro}") @ResponseStatus(HttpStatus.NO_CONTENT)
-    public int delete(@PathVariable int id_comentario_foro, int idUsuario){
-        return comentariosForoService.delete(id_comentario_foro, idUsuario);
+    public int delete(@PathVariable int id_comentario_foro){
+        return comentariosForoService.delete(id_comentario_foro);
     }
 }

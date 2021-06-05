@@ -60,7 +60,7 @@ public class SpringJdbcComentariosForoDao extends JdbcDaoSupport implements Come
     @Override
     public int update(ComentariosForo comentariosForo) {
 
-        String sql = "UPDATE comenarios_foro SET comentario = :comentario WHERE id_comentario_foro = :id_comentario_foro";
+        String sql = "UPDATE comentarios_foro SET comentario = :comentario WHERE id_comentario_foro = :id_comentario_foro";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("comentario", comentariosForo.getComentario());
         params.addValue("id_comentario_foro", comentariosForo.getIdComentarioForo());
@@ -69,12 +69,11 @@ public class SpringJdbcComentariosForoDao extends JdbcDaoSupport implements Come
     }
 
     @Override
-    public int delete(int idComentarioForo, int idUsuario) {
+    public int delete(int idComentarioForo) {
 
-        String sql = "DELETE FROM comenarios_foro WHERE id_comentario_foro = :id_comentario_foro AND id_usuario = :id_usuario";
+        String sql = "DELETE FROM comentarios_foro WHERE id_comentario_foro = :id_comentario_foro";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id_comentario_foro", idComentarioForo);
-        params.addValue("id_usuario", idUsuario);
 
         return getNamedJdbcTemplate().update(sql, params);
     }

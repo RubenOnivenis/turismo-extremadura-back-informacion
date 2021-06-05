@@ -14,5 +14,5 @@ public interface ComentariosForoDao {
 
     int update(ComentariosForo comentariosForo);
 
-    int delete(int idComentarioForo, int idUsuario);
+    int delete(int idComentarioForo);
 }

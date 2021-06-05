@@ -29,8 +29,8 @@ public class ComentariosForoServcieImpl implements ComentariosForoService{
     }
 
     @Override
-    public int delete(int idComentarioForo, int idUsuario) {
-        return comentariosForoDao.delete(idComentarioForo, idUsuario);
+    public int delete(int idComentarioForo) {
+        return comentariosForoDao.delete(idComentarioForo);
     }
 
     @Override

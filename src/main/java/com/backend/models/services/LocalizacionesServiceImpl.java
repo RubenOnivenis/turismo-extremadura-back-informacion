@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LocalizacionesImplService implements LocalizacionesService{
+public class LocalizacionesServiceImpl implements LocalizacionesService{
 
     @Autowired private LocalizacionesDao localizacionesDao;
 

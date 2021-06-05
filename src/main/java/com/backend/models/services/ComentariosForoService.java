@@ -13,7 +13,7 @@ public interface ComentariosForoService {
 
     int save(ComentariosForo comentariosForo);
 
-    int delete(int idComentarioForo, int idUsuario);
+    int delete(int idComentarioForo);
 
     int insert (ComentariosForo comentariosForo);
 
