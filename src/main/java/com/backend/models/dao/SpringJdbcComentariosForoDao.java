@@ -46,14 +46,14 @@ public class SpringJdbcComentariosForoDao extends JdbcDaoSupport implements Come
 
     @Override
     public int insert(ComentariosForo comentariosForo) {
-        String sql = "INSERT INTO comentarios_foro(comentario, id_usuario, id_tema, fch_hora_tema) " +
-                "VALUES (:comentario, :id_usuario, :id_tema, sysdate) " +
-                "WHERE id_usuario = :id_usuario";
+        String sql = "INSERT INTO comentarios_foro(comentario, id_usuario, id_tema, fch_hora_comentario) " +
+                "VALUES (:comentario, :id_usuario, :id_tema, :fch_hora_comentario) ";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("comentario", comentariosForo.getComentario());
         params.addValue("id_usuario", comentariosForo.getIdUsuario());
         params.addValue("id_tema", comentariosForo.getIdTema());
-
+        params.addValue("fch_hora_comentario", comentariosForo.getFchHoraComentario());
+        
         return getNamedJdbcTemplate().update(sql, params);
     }
 
