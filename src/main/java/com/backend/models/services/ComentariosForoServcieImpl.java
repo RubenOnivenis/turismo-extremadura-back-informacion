@@ -10,8 +10,7 @@ import java.util.List;
 @Service
 public class ComentariosForoServcieImpl implements ComentariosForoService{
 
-    @Autowired
-    private ComentariosForoDao comentariosForoDao;
+    @Autowired private ComentariosForoDao comentariosForoDao;
 
     @Override
     public List<ComentariosForo> findAll() {

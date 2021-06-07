@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class ForoTemasController {
 
     @Autowired private ForoTemasService foroTemasService;
