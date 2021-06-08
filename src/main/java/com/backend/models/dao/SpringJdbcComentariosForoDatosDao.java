@@ -15,18 +15,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/** @Repository es una anotacion de Spring que indica que la clase decorada es un repositorio.
+ * es un mecanismo para encapsular el comportamiento de almacenamiento,
+ * recuperación y búsqueda que emula una colección de objetos.
+ * **/
 @Repository
+/** Extiende de JdbcDaoSupport e implementa el Dao de ComentarioForoDatos **/
 public class SpringJdbcComentariosForoDatosDao extends JdbcDaoSupport implements ComentarioForoDatosDao{
 
+    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired
     public void setDs(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
-    @Autowired private JdbcTemplate jdbcTemplate;
+    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
+    @Autowired
+    /** Variable jdbcTemplate de tipo JdbcTemplate **/
+    private JdbcTemplate jdbcTemplate;
+    /** Variable namedParameterJdbcTemplate de tipo NamedParameterJdbcTemplate **/
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
+    /**
+     * Metodo de tipo lista del obj ComentariosForoDatos
+     * La consulta que realiza muestra los datos de los comentarios, del foro y de los usuarios para que se pueda ver
+     * quien realiza el tema, el comentario y que tema es
+     **/
     public List<ComentariosForoDatos> getComentariosForoDatos() {
 
         String sql = "SELECT cf.id_comentario_foro, cf.comentario, cf.id_usuario, cf.id_tema, cf.fch_hora_comentario, " +
@@ -39,6 +54,12 @@ public class SpringJdbcComentariosForoDatosDao extends JdbcDaoSupport implements
     }
 
     @Override
+    /**
+     * Metodo de tipo lista del obj ComentariosForoDatos, se le pasa la variable int idTema
+     * La consulta que realiza muestra los datos de los comentarios, del foro y de los usuarios para que se pueda ver
+     * quien realiza el tema, el comentario y que tema es
+     * se realiza por id para ver uno en concreto
+     **/
     public List<ComentariosForoDatos> getComentariosForoDatosById(int idTema) {
 
         String sql = "SELECT cf.id_comentario_foro, cf.comentario, cf.id_usuario, cf.id_tema, cf.fch_hora_comentario, " +
@@ -49,6 +70,7 @@ public class SpringJdbcComentariosForoDatosDao extends JdbcDaoSupport implements
                 "WHERE ft.id_tema = :id_tema";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
+        /** Las variables se igualan a las que se les pasa **/
         params.addValue("id_tema", idTema);
         return getNamedJdbcTemplate().query(sql, params, new ComentariosForoDatosRowMapper());
     }
@@ -62,10 +84,14 @@ public class SpringJdbcComentariosForoDatosDao extends JdbcDaoSupport implements
         return this.namedParameterJdbcTemplate;
     }
 
+    /** Clase a al que le implementamos las funcionalidades de RowMapper
+     * Asigna valores a los datos de la bbdd
+     * **/
     private class ComentariosForoDatosRowMapper implements RowMapper {
 
         public Object mapRow(ResultSet rs, int i) throws SQLException {
 
+            /** Creamos la variable de tipo obj de comentariosForoDatos igualada a comentariosForoDatos **/
             ComentariosForoDatos comentariosForoDatos = new ComentariosForoDatos();
 
             comentariosForoDatos.setIdComentarioForo(rs.getInt("id_comentario_foro"));
