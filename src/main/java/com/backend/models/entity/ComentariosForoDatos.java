@@ -5,10 +5,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.util.Date;
 
+/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
 public class ComentariosForoDatos implements Serializable {
 
+    // Campo el cual es el número de versión de la clase
 	private static final long serialVersionUID = 1L;
-	
+
+    // Variables
+
 	private int idComentarioForo;
     private String comentario;
     private int idUsuario;
@@ -20,9 +25,11 @@ public class ComentariosForoDatos implements Serializable {
     private String nombreTema;
     private String descripcionTema;
 
+    // Contructor de la clase
     public ComentariosForoDatos() {
     }
 
+    // Contructor de la clase con las variables
     public ComentariosForoDatos(int idComentarioForo, String comentario, int idUsuario, int idTema, Date fchHoraComentario, String nombreUsuario, String nombreTema, String descripcionTema) {
         this.idComentarioForo = idComentarioForo;
         this.comentario = comentario;
@@ -33,6 +40,8 @@ public class ComentariosForoDatos implements Serializable {
         this.nombreTema = nombreTema;
         this.descripcionTema = descripcionTema;
     }
+
+    // GETTERS AND SETTERS
 
     public int getIdComentarioForo() {
         return idComentarioForo;

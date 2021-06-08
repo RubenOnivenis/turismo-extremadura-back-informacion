@@ -5,10 +5,15 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
 public class ForoTemasDatos implements Serializable {
 
+	// Campo el cual es el número de versión de la clase
 	private static final long serialVersionUID = 1L;
-	
+
+	// Variables
+
 	private Integer id_tema;
 	private Integer id_usuario;
 	private String nombre_tema;
@@ -17,6 +22,8 @@ public class ForoTemasDatos implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date fch_hora_tema = new Date();
 	private String nombre_usuario;
+
+	// GETTERS AND SETTERS
 
 	public Integer getId_tema() {
 		return id_tema;

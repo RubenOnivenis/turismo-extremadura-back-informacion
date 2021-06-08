@@ -3,23 +3,34 @@ package com.backend.models.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity @Table(name="localizaciones")
+// Con la antoación @Entity indicamos que es una entidad
+@Entity
+// Se indica como se llama la tabla de esta entidad
+ @Table(name="localizaciones")
+/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
 public class Localizaciones implements Serializable {
 
+    // Campo el cual es el número de versión de la clase
 	private static final long serialVersionUID = 1L;
 
-	@Id
+    // Variables
+
+    //Con esta anotación indicamos que es el Identificador de la tabla
+    @Id
+    // Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLocalizacion;
-
     private String nombre;
     private String provincia;
     private String comarca;
     private String imagen;
     private String url;
 
+    // Contructor de la clase
     public Localizaciones(){}
 
+    // Contructor con las variables
     public Localizaciones(int idLocalizacion, String nombre, String provincia, String comarca, String imagen, String url) {
         this.idLocalizacion = idLocalizacion;
         this.nombre = nombre;
@@ -28,6 +39,8 @@ public class Localizaciones implements Serializable {
         this.imagen = imagen;
         this.url = url;
     }
+
+    // GETTERS AND SETTERS
 
     public int getIdLocalizacion() {
         return idLocalizacion;

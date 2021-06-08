@@ -6,16 +6,24 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+// Con la antoación @Entity indicamos que es una entidad
 @Entity
+// Se indica como se llama la tabla de esta entidad
 @Table(name="comentarios_foro")
+/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
 public class ComentariosForo implements Serializable {
 
+    // Campo el cual es el número de versión de la clase
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	// Variables
+
+    //Con esta anotación indicamos que es el Identificador de la tabla
+    @Id
+    // Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComentarioForo;
-
     private String comentario;
     private int idUsuario;
     private int idTema;
@@ -23,8 +31,10 @@ public class ComentariosForo implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date fchHoraComentario = new Date();
 
+    // Contructor de la clase
     public ComentariosForo() { }
 
+    // Contructor con las variables
     public ComentariosForo(int idComentarioForo, String comentario, int idUsuario, int idTema, Date fchHoraComentario) {
         this.idComentarioForo = idComentarioForo;
         this.comentario = comentario;
@@ -32,6 +42,8 @@ public class ComentariosForo implements Serializable {
         this.idTema = idTema;
         this.fchHoraComentario = fchHoraComentario;
     }
+
+    // GETTERS AND SETTERS
 
     public int getIdComentarioForo() {
         return idComentarioForo;
