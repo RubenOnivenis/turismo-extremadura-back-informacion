@@ -3,22 +3,22 @@ package com.backend.models.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-// Con la antoación @Entity indicamos que es una entidad
+/** Con la antoación @Entity indicamos que es una entidad **/
 @Entity
-// Se indica como se llama la tabla de esta entidad
+/** Se indica como se llama la tabla de esta entidad **/
 @Table(name="alojamientos")
-/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
- De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
+/** Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria **/
 public class Alojamientos implements Serializable {
 
-    // Campo el cual es el número de versión de la clase
+    /** Campo el cual es el número de versión de la clase **/
 	private static final long serialVersionUID = 1L;
 
-	// Variables
+    /** Variables
 
-    //Con esta anotación indicamos que es el Identificador de la tabla
+     /**Con esta anotación indicamos que es el Identificador de la tabla **/
 	@Id
-    // Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL
+    /** Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL **/
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAlojamiento;
     private int idLocalizacion;
@@ -27,10 +27,10 @@ public class Alojamientos implements Serializable {
     private String descripcion;
     private String url;
 
-    // Contructor de la clase
+    // Contructor de la clase **/
     public Alojamientos(){}
 
-    // Contructor con las variables
+    // Contructor con las variables **/
     public Alojamientos(int idAlojamiento, int idLocalizacion, String imagen, String nombre, String descripcion, String url) {
         this.idAlojamiento = idAlojamiento;
         this.idLocalizacion = idLocalizacion;

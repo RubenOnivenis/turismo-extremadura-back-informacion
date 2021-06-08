@@ -5,11 +5,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.util.Date;
 
-/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
- De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
+/** Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria **/
 public class ComentariosForoDatos implements Serializable {
 
-    // Campo el cual es el número de versión de la clase
+    /** Campo el cual es el número de versión de la clase **/
 	private static final long serialVersionUID = 1L;
 
     // Variables
@@ -18,18 +18,18 @@ public class ComentariosForoDatos implements Serializable {
     private String comentario;
     private int idUsuario;
     private int idTema;
-    //Con esta anotación le proporcionamos la hora y fecha actual al campo
+    /**Con esta anotación le proporcionamos la hora y fecha actual al campo **/
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date fchHoraComentario = new Date();
     private String nombreUsuario;
     private String nombreTema;
     private String descripcionTema;
 
-    // Contructor de la clase
+    /** Contructor de la clase **/
     public ComentariosForoDatos() {
     }
 
-    // Contructor de la clase con las variables
+    /** Contructor de la clase con las variables**/
     public ComentariosForoDatos(int idComentarioForo, String comentario, int idUsuario, int idTema, Date fchHoraComentario, String nombreUsuario, String nombreTema, String descripcionTema) {
         this.idComentarioForo = idComentarioForo;
         this.comentario = comentario;

@@ -6,35 +6,35 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-// Con la antoación @Entity indicamos que es una entidad
+/** Con la antoación @Entity indicamos que es una entidad **/
 @Entity
-// Se indica como se llama la tabla de esta entidad
+/** Se indica como se llama la tabla de esta entidad **/
 @Table(name="foro_temas")
-/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
- De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
+/** Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria **/
 public class ForoTemas implements Serializable {
 
-    // Campo el cual es el número de versión de la clase
+    /** Campo el cual es el número de versión de la clase**/
 	private static final long serialVersionUID = 1L;
 
     // Variables
 
-    //Con esta anotación indicamos que es el Identificador de la tabla
+    /**Con esta anotación indicamos que es el Identificador de la tabla**/
     @Id
-    // Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL
+    /** Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL**/
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTema;
     private String nombreTema;
     private String comentarioTema;
     private int idUsuario;
-    // Con esta anotación le proporcionamos la hora y fecha actual al campo
+    /** Con esta anotación le proporcionamos la hora y fecha actual al campo **/
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date fchHoraTema = new Date();
 
-    // Contructor de la clase
+    /** Contructor de la clase**/
     public ForoTemas() { }
 
-    // Contructor con las variables
+    /** Contructor con las variables**/
     public ForoTemas(int idTema, String nombreTema, String comentarioTema, int idUsuario, Date fchHoraTema) {
         this.idTema = idTema;
         this.nombreTema = nombreTema;

@@ -6,46 +6,46 @@ import javax.validation.constraints.NotNull;
 
 import java.sql.Date;
 
-// Con la antoación @Entity indicamos que es una entidad
+/**Con la antoación @Entity indicamos que es una entidad**/
 @Entity
-// Se indica como se llama la tabla de esta entidad
+/** Se indica como se llama la tabla de esta entidad**/
 @Table(name = "usuario")
-/* Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
- De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria*/
+/** Implementamos Serializable para indicar que es una clase ubicada en un paquete Java. io. Serializable
+ De esta manera convertimos un obj en una secuencia de bytes para almacenarlos o transmitirlos a la memoria**/
 public class Usuario {
 
     // Variables
 
-    //Con esta anotación indicamos que es el Identificador de la tabla
+    /**Con esta anotación indicamos que es el Identificador de la tabla**/
     @Id
-    // Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL
+    /** Con esta anotación se configura la forma del incremento del campo, como el AUTO_INCREMENT de MYSQL**/
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    // Con esta anotación indicamos que no puede ser null
+    /** Con esta anotación indicamos que no puede ser null**/
     @NotNull
     private String nombre;
-    // Con esta anotación indicamos que no puede ser null
+    /** Con esta anotación indicamos que no puede ser null**/
     @NotNull
-    // Con esta anotación indicamos que es un valor único
+    /** Con esta anotación indicamos que es un valor único**/
     @Column(unique = true)
     private String nombreUsuario;
-    // Con esta anotación indicamos que no puede ser null
+    /** Con esta anotación indicamos que no puede ser null**/
     @NotNull
     private String email;
-    // Con esta anotación indicamos que no puede ser null
+    /** Con esta anotación indicamos que no puede ser null**/
     @NotNull
     private String password;
-    // Con esta anotación indicamos que no puede ser null ni estar vacío
+    /** Con esta anotación indicamos que no puede ser null ni estar vacío**/
     @NotBlank
     private String apellidos;
     private Date fch_nacimiento;
     private String telefono;
 
-    // Contructor de la clase
+    /** Contructor de la clase **/
     public Usuario() {
     }
 
-    // Contructor de la clase con variables
+    /** Contructor de la clase con variables**/
     public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password,  @NotNull String apellidos, Date fch_nacimiento, String telefono) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
