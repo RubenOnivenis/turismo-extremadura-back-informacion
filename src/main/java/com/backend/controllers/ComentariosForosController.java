@@ -54,9 +54,9 @@ public class ComentariosForosController {
         return comentariosForoService.update(comentariosForo);
     }
 
-    /** Anotación con la cual que indicamos que es una petición delete y en el endpoint se escribirá /comentario_foro/{id_comentario_foro} **/
+    /** Anotacion con la cual que indicamos que es una peticion delete y en el endpoint se escribe /comentario_foro/{id_comentario_foro} **/
     @DeleteMapping("/comentario_foro/{id_comentario_foro}")
-    /** Anotación que nos permite marcar el método con el código httm y la razon con la que es devuelto, en este caso es DELETE **/
+    /** Anotacion que nos permite marcar el metodo con el codigo http y la razon con la que es devuelto, en este caso es DELETE **/
     @ResponseStatus(HttpStatus.NO_CONTENT)
     /** Controlador que sirve para borrar un comentario del foro según el id **/
     /** Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
