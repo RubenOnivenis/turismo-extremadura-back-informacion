@@ -14,6 +14,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/** @Repository es una anotacion de Spring que indica que la clase decorada es un repositorio.
+ * es un mecanismo para encapsular el comportamiento de almacenamiento,
+ * recuperación y búsqueda que emula una colección de objetos.
+ * **/
 @Repository
 public class SpringJdbcAlojamientosDao extends JdbcDaoSupport implements AlojamientosDao {
 
