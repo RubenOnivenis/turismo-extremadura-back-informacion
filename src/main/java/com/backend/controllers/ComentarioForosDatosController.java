@@ -7,18 +7,30 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController @RequestMapping("/api") @CrossOrigin(origins = {"http://localhost:4200"})
+// Anotación que nos indica que es una clase para controladores
+@RestController
+// Anotación para el mapeo, le indicamos que /api ira al principio
+@RequestMapping("/api")
+// Lo conectamos con el localhost de angular
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class ComentarioForosDatosController {
 
+    // @Autowired nos permite inyectar la dependencia dentro de otras
     @Autowired
+    // Servicio de los comentariosDatos
     ComentariosForoDatosService comentariosForoDatosService;
 
+    // Anotación con la cual indicamos que es una petición de tipo GET y en el endpoint se escribirá /comentarios_foro_datos
     @GetMapping("/comentarios_foro_datos")
+    // Controlador para ver todos los comentarios del foro
     public List<ComentariosForoDatos> findAll(){
         return comentariosForoDatosService.findAll();
     }
 
+    // Anotación con la cual indicamos que es una petición de tipo GET y en el endpoint se escribirá /comentarios_foro_datos/{idTema}
     @GetMapping("/comentarios_foro_datos/{idTema}")
+    // Controlador para ver todos los comentarios del foro según el idTema
+    // Con @PathVariable configuramos la variable dentro del propio segmento de la URL
     public List<ComentariosForoDatos> show(@PathVariable int idTema){
         return comentariosForoDatosService.findById(idTema);
     }

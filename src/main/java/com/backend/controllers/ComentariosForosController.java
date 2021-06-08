@@ -8,37 +8,58 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Anotación que nos indica que es una clase para controladores
 @RestController
+// Anotación para el mapeo, le indicamos que /api ira al principio
 @RequestMapping("/api")
+// Lo conectamos con el localhost de angular
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class ComentariosForosController {
 
+    // @Autowired nos permite inyectar la dependencia dentro de otras
     @Autowired private ComentariosForoService comentariosForoService;
 
+    // Anotación con la cual indicamos que es una petición de tipo GET y en el endpoint se escribirá /comentarios_foro
     @GetMapping("/comentarios_foro")
+    //Controlador que muestra todos loc comentarios del foro
     public List<ComentariosForo> comentariosForosIndex(){
         return comentariosForoService.findAll();
     }
 
+    // Anotación con la cual indicamos que es una petición de tipo GET y en el endpoint se escribirá /comentarios_foro/{id_comentarios_foro}
     @GetMapping("/comentarios_foro/{id_comentario_foro}")
+    // Controlador que sirve para mostrar un comentario del foro según el id
+    // Con @PathVariable configuramos la variable dentro del propio segmento de la URL
     public ComentariosForo show(@PathVariable int id_comentario_foro){
         return comentariosForoService.findById(id_comentario_foro);
     }
 
+    // Anotación con la cual que indicamos que es una petición post y en el endpoint se escribirá /comentarios_foro
+    @PostMapping("/comentario_foro")
+    // Anotación que nos permite marcar el método con el código httm y la razon con la que es devuelto, en este caso es CREATED
+    @ResponseStatus(HttpStatus.CREATED)
     // Controlador para añadir un comentario
-    @PostMapping("/comentario_foro") @ResponseStatus(HttpStatus.CREATED)
+    // Con @RequestBody le pasamos el cuerpo entero del obj
     public int create(@RequestBody ComentariosForo comentariosForo){
         return comentariosForoService.save(comentariosForo);
     }
 
+    // Anotación con la cual que indicamos que es una petición put y en el endpoint se escribirá /comentario_foro/{id_comentario_foro}
     @PutMapping("/comentario_foro/{id_comentario_foro}")
+    // Controlador que sirve para modificar un comentario
+    // Con @RequestBody le pasamos el cuerpo entero del obj
+    // Con @PathVariable configuramos la variable dentro del propio segmento de la URL
     public int update(@RequestBody ComentariosForo comentariosForo, @PathVariable int idComentarioForo){
         comentariosForo.setIdComentarioForo(idComentarioForo);
-
         return comentariosForoService.update(comentariosForo);
     }
 
-    @DeleteMapping("/comentario_foro/{id_comentario_foro}") @ResponseStatus(HttpStatus.NO_CONTENT)
+    // Anotación con la cual que indicamos que es una petición delete y en el endpoint se escribirá /comentario_foro/{id_comentario_foro}
+    @DeleteMapping("/comentario_foro/{id_comentario_foro}")
+    // Anotación que nos permite marcar el método con el código httm y la razon con la que es devuelto, en este caso es DELETE
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    // Controlador que sirve para borrar un comentario del foro según el id
+    // Con @PathVariable configuramos la variable dentro del propio segmento de la URL
     public int delete(@PathVariable int id_comentario_foro){
         return comentariosForoService.delete(id_comentario_foro);
     }
