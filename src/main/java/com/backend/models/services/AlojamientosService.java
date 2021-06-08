@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AlojamientosService {
 
-    // todo funcido de buscar todos los alojamientos
+    /** función tipo lista del obj de buscar todos los alojamientos **/
     List<Alojamientos> findAll();
 
     List<Alojamientos> getAlojamientosByName(String nombre);

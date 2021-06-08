@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ComentarioForoDatosDao {
 
-    /** Método tipo lista del obj ComentariosForoDatos **/
+    /** Metodo tipo lista del obj ComentariosForoDatos **/
     List<ComentariosForoDatos> getComentariosForoDatos();
 
-    /** Método tipo lista del obj ComentariosForoDatos que se le pasa la variable int idTema **/
+    /** Metodo tipo lista del obj ComentariosForoDatos que se le pasa la variable int idTema **/
     List<ComentariosForoDatos> getComentariosForoDatosById(int idTema);
 }
