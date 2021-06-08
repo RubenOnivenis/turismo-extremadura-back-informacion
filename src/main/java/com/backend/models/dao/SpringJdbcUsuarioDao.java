@@ -15,24 +15,37 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/** @Repository es una anotacion de Spring que indica que la clase decorada es un repositorio.
+ * es un mecanismo para encapsular el comportamiento de almacenamiento,
+ * recuperación y búsqueda que emula una colección de objetos.
+ * **/
 @Repository
+/** Extiende de JdbcDaoSupport e implementa el Dao de Usuario **/
 public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
 
+	/** @Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired
     public void setDs(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
+    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired private JdbcTemplate jdbcTemplate;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
+    /** Metodo de tipo Lista del obj Usuario, que realiza una consulta
+     * La consulta trae todos los datos de los Usuarios
+     * **/
     public List<Usuario> getUsuarios() {
         String sql = "SELECT * FROM usuario;";
         return getJdbcTemplate().query(sql, new UsuarioRowMapper());
     }
 
     @Override
+    /** Metodo del obj Usuario, que realiza una consulta
+     * La consulta trae todos los datos de un Usuario por su nombre de usuario
+     * **/
     public Usuario getUsuarioByName(String nombre_usuario) {
         String sql = "SELECT * FROM usuario WHERE nombre_usuario = :nombre_usuario;";
         MapSqlParameterSource params = new MapSqlParameterSource();
@@ -42,6 +55,9 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
     }
 
     @Override
+    /** Metodo de tipo int, que realiza una consulta
+     * La consulta borra un Usuario por su Id
+     * **/
     public int delete(int id) {
         String sql = "DELETE FROM usuario WHERE id = :id;";
         MapSqlParameterSource params = new MapSqlParameterSource();
@@ -51,6 +67,9 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
     }
 
     @Override
+    /** Metodo de tipo int, que realiza una consulta
+     * La consulta actualiza un Usuario por su nombre de usuario
+     * **/
     public int update(Usuario usuario) {
         String sql = "UPDATE usuario SET "
                 + "nombre_usuario = :nombre_usuario, nombre = :nombre, apellidos = :apellidos, fch_nacimiento = :fch_nacimiento, "
@@ -69,6 +88,9 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
     }
 
     @Override
+    /** Metodo de tipo int, que realiza una consulta
+     * La consulta actualiza la contraseña de un Usuario segun el Id del Usuario
+     * **/
     public int updatePass(Usuario usuario) {
 
         String sql = "UPDATE usuario SET password = :password WHERE id = :id;";
@@ -88,6 +110,9 @@ public class SpringJdbcUsuarioDao extends JdbcDaoSupport implements UsuarioDao{
         return this.namedParameterJdbcTemplate;
     }
 
+    /** Clase a al que le implementamos las funcionalidades de RowMapper
+     * Asigna valores a los datos de la bbdd
+     * **/
     private class UsuarioRowMapper implements RowMapper {
 
         public Object mapRow(ResultSet rs, int i) throws SQLException {

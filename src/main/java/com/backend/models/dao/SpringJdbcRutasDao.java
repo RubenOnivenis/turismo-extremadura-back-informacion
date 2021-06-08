@@ -14,14 +14,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/** @Repository es una anotacion de Spring que indica que la clase decorada es un repositorio.
+ * es un mecanismo para encapsular el comportamiento de almacenamiento,
+ * recuperación y búsqueda que emula una colección de objetos.
+ * **/
 @Repository
+/** Extiende de JdbcDaoSupport e implementa el Dao de Rutas **/
 public class SpringJdbcRutasDao extends JdbcDaoSupport implements RutasDao {
 
+	/** @Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired
     public void setDs(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
+    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired private JdbcTemplate jdbcTemplate;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
@@ -35,6 +42,9 @@ public class SpringJdbcRutasDao extends JdbcDaoSupport implements RutasDao {
     }
 
     @Override
+    /** Metodo de tipo Lista del obj Rutas, que realiza una consulta
+     * La consulta trae todos los datos de las Rutas
+     * **/
     public List<Rutas> getRuta() {
         String sql = "SELECT * FROM rutas r;";
 
@@ -42,6 +52,9 @@ public class SpringJdbcRutasDao extends JdbcDaoSupport implements RutasDao {
     }
 
     @Override
+    /** Metodo de tipo Lista del obj Rutas, que realiza una consulta
+     * La consulta trae todos los datos de las Rutas junto con algunos datos de Localizaciones comparando el nombre
+     * **/
     public List<Rutas> getRutasByName(String nombre) {
         String sql = "SELECT r.imagen, r.nombre, l.nombre, r.descripcion FROM rutas r INNER JOIN localizaciones l " +
                 "ON r.id_localizacion = l.id_localizacion WHERE r.nombre = :nombre OR l.nombre = :nombre;";
@@ -52,6 +65,9 @@ public class SpringJdbcRutasDao extends JdbcDaoSupport implements RutasDao {
         return getNamedJdbcTemplate().query(sql, params, new SpringJdbcRutasDao.RutasRowMapper());
     }
 
+    /** Clase a al que le implementamos las funcionalidades de RowMapper
+     * Asigna valores a los datos de la bbdd
+     * **/
     private class RutasRowMapper implements RowMapper {
 
         public Object mapRow(ResultSet rs, int i) throws SQLException {
