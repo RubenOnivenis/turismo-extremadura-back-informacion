@@ -23,7 +23,7 @@ public class ForoTemasDatos implements Serializable {
     private Date fch_hora_tema = new Date();
 	private String nombre_usuario;
 
-	// GETTERS AND SETTERS
+	/** GETTERS AND SETTERS **/
 
 	public Integer getId_tema() {
 		return id_tema;

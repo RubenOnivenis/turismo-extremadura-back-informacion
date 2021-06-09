@@ -40,7 +40,7 @@ public class Localizaciones implements Serializable {
         this.url = url;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getIdLocalizacion() {
         return idLocalizacion;

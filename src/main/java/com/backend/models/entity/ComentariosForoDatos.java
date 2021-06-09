@@ -41,7 +41,7 @@ public class ComentariosForoDatos implements Serializable {
         this.descripcionTema = descripcionTema;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getIdComentarioForo() {
         return idComentarioForo;

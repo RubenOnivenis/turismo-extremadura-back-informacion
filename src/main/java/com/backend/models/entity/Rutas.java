@@ -41,7 +41,7 @@ public class Rutas implements Serializable {
         this.url = url;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getIdRuta() {
         return idRuta;
