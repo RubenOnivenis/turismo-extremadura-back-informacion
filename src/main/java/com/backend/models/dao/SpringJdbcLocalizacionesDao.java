@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-/** @Repository es una anotacion de Spring que indica que la clase decorada es un repositorio.
+/** Repository es una anotacion de Spring que indica que la clase decorada es un repositorio.
  * es un mecanismo para encapsular el comportamiento de almacenamiento,
  * recuperación y búsqueda que emula una colección de objetos.
  * **/
@@ -23,13 +23,13 @@ import java.util.List;
 /** Extiende de JdbcDaoSupport e implementa el Dao de Localizaciones **/
 public class SpringJdbcLocalizacionesDao extends JdbcDaoSupport implements LocalizacionesDao {
 
-	/** @Autowired nos permite inyectar la dependencia dentro de otras **/
+	/** Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired
     public void setDs(DataSource dataSource) {
         setDataSource(dataSource);
     }
 
-    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
+    /** Autowired nos permite inyectar la dependencia dentro de otras **/
     @Autowired private JdbcTemplate jdbcTemplate;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
