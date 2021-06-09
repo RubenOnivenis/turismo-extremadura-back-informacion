@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class RutasController {
 
-    /** @Autowired nos permite inyectar la dependencia dentro de otras**/
+    /** Autowired nos permite inyectar la dependencia dentro de otras**/
     @Autowired
     /** Sevicio de rutas**/
     private RutasService rutasService;
@@ -31,7 +31,7 @@ public class RutasController {
     /** Anotación con la cual indicamos que es una petición de tipo GET y en el endpoint se escribirá /rutas/nombre/{nombre}**/
     @GetMapping("/rutas/nombre/{nombre}")
     /** Controlador para ver los rutas según el nombre, este sirve para el buscador del front**/
-    /** Con @PathVariable configuramos la variable dentro del propio segmento de la URL**/
+    /** Con PathVariable configuramos la variable dentro del propio segmento de la URL**/
     public List<Rutas> getRutasByName(@PathVariable String nombre){
         return rutasService.getRutasByName(nombre);
     }

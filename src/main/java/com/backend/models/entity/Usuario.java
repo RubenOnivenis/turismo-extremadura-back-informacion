@@ -56,7 +56,7 @@ public class Usuario {
         this.telefono= telefono;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getId() {
         return id;

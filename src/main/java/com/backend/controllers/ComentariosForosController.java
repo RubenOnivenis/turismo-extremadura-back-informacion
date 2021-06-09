@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class ComentariosForosController {
 
-    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
+    /** Esta anoacion nos permite inyectar la dependencia dentro de otras **/
     @Autowired private ComentariosForoService comentariosForoService;
 
     /** Anotacion con la cual indicamos que es una peticion de tipo GET y en el endpoint se escribe /comentarios_foro **/
@@ -29,7 +29,7 @@ public class ComentariosForosController {
     /** Anotacion con la cual indicamos que es una peticion de tipo GET y en el endpoint se escribe /comentarios_foro/{id_comentarios_foro} **/
     @GetMapping("/comentarios_foro/{id_comentario_foro}")
     /** Controlador que sirve para mostrar un comentario del foro según el id **/
-    /** Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
+    /** Con PathVariable configuramos la variable dentro del propio segmento de la URL **/
     public ComentariosForo show(@PathVariable int id_comentario_foro){
         return comentariosForoService.findById(id_comentario_foro);
     }
@@ -39,7 +39,7 @@ public class ComentariosForosController {
     /** Anotacion que nos permite marcar el metodo con el código httm y la razon con la que es devuelto, en este caso es CREATED **/
     @ResponseStatus(HttpStatus.CREATED)
     /** Controlador para añadir un comentario **/
-    /** Con @RequestBody le pasamos el cuerpo entero del obj **/
+    /** Con RequestBody le pasamos el cuerpo entero del obj **/
     public int create(@RequestBody ComentariosForo comentariosForo){
         return comentariosForoService.save(comentariosForo);
     }
@@ -47,8 +47,8 @@ public class ComentariosForosController {
     /** Anotacion con la cual que indicamos que es una peticion put y en el endpoint se escribe /comentario_foro/{id_comentario_foro} **/
     @PutMapping("/comentario_foro/{id_comentario_foro}")
     /** Controlador que sirve para modificar un comentario **/
-    /** Con @RequestBody le pasamos el cuerpo entero del obj **/
-    /** Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
+    /** Con RequestBody le pasamos el cuerpo entero del obj **/
+    /** Con PathVariable configuramos la variable dentro del propio segmento de la URL **/
     public int update(@RequestBody ComentariosForo comentariosForo, @PathVariable int idComentarioForo){
         comentariosForo.setIdComentarioForo(idComentarioForo);
         return comentariosForoService.update(comentariosForo);
@@ -59,7 +59,7 @@ public class ComentariosForosController {
     /** Anotacion que nos permite marcar el metodo con el codigo http y la razon con la que es devuelto, en este caso es DELETE **/
     @ResponseStatus(HttpStatus.NO_CONTENT)
     /** Controlador que sirve para borrar un comentario del foro según el id **/
-    /** Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
+    /** Con PathVariable configuramos la variable dentro del propio segmento de la URL **/
     public int delete(@PathVariable int id_comentario_foro){
         return comentariosForoService.delete(id_comentario_foro);
     }

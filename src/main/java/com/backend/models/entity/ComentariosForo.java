@@ -43,7 +43,7 @@ public class ComentariosForo implements Serializable {
         this.fchHoraComentario = fchHoraComentario;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getIdComentarioForo() {
         return idComentarioForo;

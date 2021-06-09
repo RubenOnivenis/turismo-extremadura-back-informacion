@@ -43,7 +43,7 @@ public class ForoTemas implements Serializable {
         this.fchHoraTema = fchHoraTema;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getIdTema() {
         return idTema;

@@ -27,10 +27,10 @@ public class Alojamientos implements Serializable {
     private String descripcion;
     private String url;
 
-    // Contructor de la clase **/
+    /** Contructor de la clase **/
     public Alojamientos(){}
 
-    // Contructor con las variables **/
+    /** Contructor con las variables **/
     public Alojamientos(int idAlojamiento, int idLocalizacion, String imagen, String nombre, String descripcion, String url) {
         this.idAlojamiento = idAlojamiento;
         this.idLocalizacion = idLocalizacion;
@@ -40,7 +40,7 @@ public class Alojamientos implements Serializable {
         this.url = url;
     }
 
-    // GETTERS AND SETTERS
+    /** GETTERS AND SETTERS **/
 
     public int getIdAlojamiento() {
         return idAlojamiento;

@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class AlojamientosController {
 
-    /** @Autowired nos permite inyectar la dependencia dentro de otras **/
+    /** Esta anotacion nos permite inyectar la dependencia dentro de otras **/
     @Autowired
     /** Servicio del alojamiento **/
     AlojamientosService alojamientosService;
@@ -32,14 +32,14 @@ public class AlojamientosController {
     /** Anotacion con la cual indicamos que es una peticion de tipo GET y en el endpoint se escribe /alojamientos/nombre/{nombre} **/
     @GetMapping("/alojamientos/nombre/{nombre}")
     /** Controlador para ver los alojamientos según el nombre, este sirve para el buscador del front
-     Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
+     Con PathVariable configuramos la variable dentro del propio segmento de la URL **/
     public List<Alojamientos> getAlojamientosByName(@PathVariable String nombre){
         return alojamientosService.getAlojamientosByName(nombre);
     }
     /** Anotacion con la cual indicamos que es una peticion de tipo GET y en el endpoint se escribe /alojamientos/{id_alojamiento} **/
     @GetMapping("/alojamiento/{id_alojamiento}")
     /** Controlador para ver un solo alojamiento por el id.
-     Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
+     Con PathVariable configuramos la variable dentro del propio segmento de la URL **/
     public Alojamientos show(@PathVariable int id_alojamiento){
 
         return alojamientosService.findById(id_alojamiento);

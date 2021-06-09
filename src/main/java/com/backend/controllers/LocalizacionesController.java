@@ -36,7 +36,7 @@ public class LocalizacionesController {
     /** Anotación con la cual indicamos que es una petición de tipo GET y en el endpoint se escribirá /localizaciones/nombre/{nombre} **/
     @GetMapping("/localizaciones/nombre/{nombre}")
     /** Controlador para ver las localizaciones según el nombre, este sirve para el buscador del front **/
-    /** Con @PathVariable configuramos la variable dentro del propio segmento de la URL **/
+    /** Con PathVariable configuramos la variable dentro del propio segmento de la URL **/
 	public List<Localizaciones> show(@PathVariable String nombre) {
 		return localizacionesService.findByName(nombre);
 	}
